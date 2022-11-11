@@ -31,15 +31,14 @@
                 src="./ApliWeb_files/logo_mini.svg"></div>
         <div class="divBordaBarCabecalho divEsconde">
             <div class="menu-item">
-                <div class="menu-logo">
+                <div class="menu-user">
                     <!-- <img src="./ApliWeb_files/user.svg"> -->
-                    <span class="material-symbols-outlined">
-                        person
-                    </span>
+
+                    <img src="svg/user.svg" class="icon" alt="" srcset="">
+                    <span class="user">admin</span>
                 </div>
 
                 <div class="fontCabecalho">
-                    <span class="user">admin</span>
                     <select name="empresa" class="inputSelect" onchange="changeEmpresa(this,'')">
                         <option selected="" value="01">Cerrad Coffee - Patrocínio</option>
                         <option value="02">Cerrad Coffee - Tokio</option>
@@ -63,8 +62,11 @@
             <input list="datalistmenu" class="input"
                 onchange="confirmForm('formMenuItem','AbrirMenu','&amp;nome='+this.value)" placeholder="Busca">
         </div>
-        <div class="divMenuModulo" onclick="viewSpan('spanCfg')">▹&nbsp;Sistema</div><span id="spanCfg"
-            class="spanMenu">
+
+        <div class="divMenuModulo" onclick="viewSpan('spanCfg')">
+            <img src="svg/settings.svg" alt="" class="icon">
+            Sistema
+        </div><span id="spanCfg" class="spanMenu">
             <div class="divMenuGrupo">&nbsp;Catálogo de Dados</div>
             <div class="divMenuItem" id="Atualizar" onclick="confirmForm('formMenuItem','AtualizarBancoDeDados','')">
                 Atualizar BD
@@ -116,8 +118,10 @@
                 Permissões</div>
             <div class="divMenuGrupo">&nbsp;Cadastros</div>
         </span>
-        <div class="divMenuModulo" onclick="viewSpan('span010')">&nbsp;Controle de Grãos</div><span id="span010"
-            class="spanMenu">
+        <div class="divMenuModulo" onclick="viewSpan('span010')">
+            <img src="svg/grass.svg" alt="" class="icon">
+            Controle de Grãos
+        </div><span id="span010" class="spanMenu">
             <div id="divGrupo0100" class="divMenuGrupo">&nbsp;Cadastros</div>
             <div class="divMenuItem" id="Amostras/Picotes"
                 onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=AMOSTRA')">
@@ -202,8 +206,10 @@
                 onclick="confirmForm('formMenuItem','ListarPItoGuiaAmostraServico','')">Guia de
                 Serviço por PI</div>
         </span>
-
-        <div class="divMenuModulo">▹&nbsp;Login</div>
+        <div class="divMenuModulo">
+            <img src="svg/user.svg" alt="" class="icon">
+            Login
+        </div>
         <div class="divMenuItem" onclick="confirmForm('formMenuItem','Inicio','')">Inicio</div>
         <div class="divMenuItem" onclick="window.open('https://www.apli.com.br/manual/')">Manual</div>
         <div class="divMenuItem" onclick="confirmForm('formMenuItem','AlterarSenha','')">Alterar Senha</div>

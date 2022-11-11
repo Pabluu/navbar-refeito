@@ -24,7 +24,7 @@
 
 :root {
     --bg-primary: #042940;
-    --bg-secondy:  #20506e;
+    --bg-secondy: #20506e;
     --font-poppins: 'Poppins';
     --font-noto: 'Noto Sans JP', 'Tahoma';
 
@@ -87,7 +87,7 @@ canvas {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-secondy);
+    background: var(--bg-primary);
     /* color of the tracking area */
 }
 
@@ -96,7 +96,7 @@ canvas {
     /* color of the scroll thumb */
     border-radius: 20px;
     /* roundness of the scroll thumb */
-    border: 3px solid var(--bg-primary);
+    border: 3px solid var(--bg-secondy);
     /* creates padding around scroll thumb */
 }
 
@@ -157,9 +157,12 @@ canvas {
         opacity: 0.1;
     }
 
+    50% {
+        opacity: 1;
+    }
+
     to {
         width: 100%;
-        opacity: 1;
     }
 }
 
@@ -363,7 +366,7 @@ canvas {
 .divMenuModulo:hover {
     color: black;
     padding-left: 10px;
-    background: var(--bg-primary);
+    background: var(--bg-secondy);
 }
 
 
@@ -392,11 +395,11 @@ canvas {
 .divMenuItem:hover {
     color: black;
     padding-left: 10px;
-    background: #04294090;
+    background: #04294070;
 }
 
 
-.nav-footer{
+.nav-footer {
     height: 75px;
     width: 100%;
     background: var(--bg-primary)
@@ -647,18 +650,18 @@ canvas {
 
 .inputSelect {
     background: linear-gradient(white, white, #f0f0f0);
-    border: 1px solid #c0c0c0;
-    border-radius: 2px;
-    ;
-    padding: 2px;
+    border-radius: 5px;
+    border: 2px solid var(--bg-primary);
+    color: black;
     font-family: var(--font-noto);
     font-size: 14px;
-    height: 32px;
-    color: black
+    height: 35px;
+    outline: 1px solid var(--bg-primary);
+    padding: 2px;
 }
 
 .inputSelect:hover {
-    border: 1px solid #909090;
+    outline: 1px solid white;
 }
 
 .inputPadrao {
@@ -1259,11 +1262,16 @@ canvas {
 
 .input {
     background-color: #eee;
-    border: none;
+    border: 2px solid var(--bg-secondy);
     padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
     border-radius: 10px;
+}
+
+.input:focus-visible {
+    outline: none;
+    border: 2px solid var(--bg-primary);
 }
 
 .divCabecalho {
@@ -1294,28 +1302,39 @@ canvas {
     margin-right: 10px;
 }
 
-.menu-item .menu-logo {
+.menu-item .menu-user {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     margin-right: 10px;
-    width: 25px;
+    width: 100px;
+    height: 50px;
 }
 
-.menu-item .menu-logo img {
-    width: 100%;
+.icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.menu-user .user {
+    color: white;
+    font-family: var(--font-poppins)
 }
 
 /* google icon */
-.material-symbols-outlined {
+span.material-symbols-outlined {
     color: white;
     font-size: 30px;
 }
 
-.fontCabecalho>.user::after {
+.menu-user>.user::after {
     border-right: 1px solid white;
     content: '';
     padding-right: 5px;
 }
 
-span#divMenu > * {
+span#divMenu>* {
     font-family: 'Poppins', var(--font-noto);
     font-size: 16px;
     font-weight: 400;
@@ -1324,8 +1343,8 @@ span#divMenu > * {
 
 .divMenu {
     animation: mostramenubar 1s;
-    background: var(--bg-secondy);
-    border-bottom-right-radius: 5px;
+    background: var(--bg-primary);
+    border-top: 1px dashed white;
     height: 100%;
     min-height: 400px;
     overflow: scroll;
@@ -1334,14 +1353,18 @@ span#divMenu > * {
     z-index: 0;
 }
 
-.divMenuModulo, 
+span#divMenu>* {
+    margin-bottom: 5px;
+}
+
+.divMenuModulo,
 .divMenuGrupo,
 .divMenuItem {
-    height: 40px;
+    height: 35px;
     border-radius: 0;
 }
 
-.divMenuModulo{
+.divMenuModulo {
     height: 40px;
     border-radius: 10px;
 }
