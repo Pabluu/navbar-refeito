@@ -1,0 +1,282 @@
+<!-- saved from url=(0042)http://apli.com.br:8287/sistema5/index.jsp -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta charset='utf-8'>
+    <title>ApliWeb</title>
+    <link href="http://apli.com.br:8287/sistema5/imagens/favicon.gif" rel="icon" type="image/gif">
+    <script src="./ApliWeb_files/script_v298.js" type="text/javascript"></script>
+    <script src="./ApliWeb_files/Chart.bundle_2.7.3b.js" type="text/javascript"></script>
+    <script src="./ApliWeb_files/utils.js" type="text/javascript"></script>
+    <script>
+        var iMenu = 0; var empresa = '01'; document.addEventListener('click', function (event) { if (!document.getElementById('divMenu').contains(event.target)) { iMenu++; if (iMenu == 2) { hiddenMenu(); iMenu = 0; } } }); function showMenu() { var oObj = document.getElementById('divMenu'); if (oObj) { oObj.style.display = 'block'; oObj.style.visibility = 'visible'; oObj.style.zIndex = '1'; console.log('showmenu'); } } function hiddenMenu() { var oObj = document.getElementById('divMenu'); if (oObj) { oObj.style.display = 'none'; oObj.style.visibility = 'hidden'; oObj.style.zIndex = '1'; } } function mostraConsultaPadrao(tableName, tableNameRelation, fieldName, idCodigoDestino) { var oObj = document.getElementById('divDialog'); if (oObj) { document.getElementById('divDialogBody').innerHTML = "<center><img  style='width:15px;' src='imagens/loading.gif'></center>"; oObj.style.display = 'block'; oObj.style.visibility = 'visible'; oObj.style.top = 100; oObj.style.left = 20; openAjax('index.jsp?' + getFormParams('ConsultaPadraoDialog') + '&tablename=' + tableName + '&tablenamerelation=' + tableNameRelation + '&fieldname=' + fieldName + '&idCodigoDestino=' + idCodigoDestino, '', 'divDialogBody'); } } function mostraConsultaPadraoFilter(tableName, tableNameRelation, fieldName, idCodigoDestino, filter, other) { var oObj = document.getElementById('divDialog'); if (oObj) { document.getElementById('divDialogBody').innerHTML = "<center><img  style='width:15px;' src='imagens/loading.gif'></center>"; oObj.style.display = 'block'; oObj.style.visibility = 'visible'; oObj.style.top = 100; oObj.style.left = 20; openAjax('index.jsp?' + getFormParams('ConsultaPadraoDialog') + '&tablename=' + tableName + '&tablenamerelation=' + tableNameRelation + '&fieldname=' + fieldName + '&idCodigoDestino=' + idCodigoDestino + '&filter=' + filter + '&other=' + other, '', 'divDialogBody'); } } function atualizaConsultaPadrao(tableName, tableNameRelation, fieldName, idCodigoDestino) { openAjax('index.jsp?' + getFormParams('ConsultaPadraoDialog') + '&tablename=' + tableName + '&tablenamerelation=' + tableNameRelation + '&fieldname=' + fieldName + '&idCodigoDestino=' + idCodigoDestino, '', 'divDialogBody'); } function getFormParams2(idForm) { var url = ''; var oForm = document.getElementById(idForm); if (oForm) { aFunctions = oForm.getElementsByTagName('input'); for (var key in aFunctions) { var objName = aFunctions[key].name; var objValue = aFunctions[key].value; url += '&' + objName + '=' + objValue; } return url; } return ''; } function openAjax2(url, param, idPainel, afterFunction) { var xmlhttp; var xmlhttp; d = new Date(); if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); } xmlhttp.onreadystatechange = function () { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var oPainel = document.getElementById(idPainel); if (oPainel) { oPainel.innerHTML = xmlhttp.responseText; eval(afterFunction); } else { alert('id not found'); } } }; xmlhttp.open('POST', url, true); xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8'); xmlhttp.send(param); } function getValueByAjax(idDestino, tableName, fieldName, value) { console.log('getValueByAjax'); var url = 'index.jsp?'; var param = '&msgtype=getValueByAjax'; param += '&idDestino=' + idDestino + '&empresa=' + empresa; param += '&tableName=' + tableName; param += '&fieldName=' + fieldName; param += '&value=' + value; var xmlhttp; d = new Date(); if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); } xmlhttp.onreadystatechange = function () { if (xmlhttp.readyState == 4) { if (xmlhttp.status == 200) { var oInputDestino = document.getElementById(idDestino); if (oInputDestino) { oInputDestino.value = xmlhttp.responseText; } } } }; xmlhttp.open('POST', url, true); xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8'); xmlhttp.send(param); } function getValueByAjax2(idDestino, tableName, fieldName, value) { var url = 'index.jsp?'; var param = '&msgtype=getValueByAjax2'; param += '&idDestino=' + idDestino + '&empresa=' + empresa; param += '&tableName=' + tableName; param += '&fieldName=' + fieldName; param += '&value=' + value; var xmlhttp; d = new Date(); if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); } xmlhttp.onreadystatechange = function () { if (xmlhttp.readyState == 4) { if (xmlhttp.status == 200) { var oInputDestino = document.getElementById(idDestino); if (oInputDestino) { oInputDestino.value = xmlhttp.responseText; } } } }; xmlhttp.open('POST', url, true); xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8'); xmlhttp.send(param); } function getValueByAjax3(idDestino, tableName, fieldName, value, afterFunction) { var url = 'index.jsp?'; var param = '&msgtype=getValueByAjax2'; param += '&idDestino=' + idDestino + '&empresa=' + empresa; param += '&tableName=' + tableName; param += '&fieldName=' + fieldName; param += '&value=' + value; var xmlhttp; d = new Date(); if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); } xmlhttp.onreadystatechange = function () { if (xmlhttp.readyState == 4) { if (xmlhttp.status == 200) { var oInputDestino = document.getElementById(idDestino); if (oInputDestino) { oInputDestino.value = xmlhttp.responseText; eval(afterFunction); } } } }; xmlhttp.open('POST', url, true); xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8'); xmlhttp.send(param); } function multiplicaComDesconto(fieldValor, fieldMultiplicador, fieldDesconto, fieldResultado) { var strValor = document.getElementById(fieldValor).value; var strMultiplicador = document.getElementById(fieldMultiplicador).value; var strDesconto = document.getElementById(fieldDesconto).value; var strResultado = document.getElementById(fieldResultado).value; var nResultado = (parseInt(strValor) * parseNumberToDouble(strMultiplicador)) - parseNumberToDouble(strDesconto); document.getElementById(fieldResultado).value = parseDoubleToNumber(nResultado, 2); } function parseNumberToDouble(strNumber) { if (strNumber == '' || strNumber == undefined) return 0; strNumber = replaceAll(strNumber, '.', ''); strNumber = strNumber.replace(',', '.'); return Number(strNumber); } function parseDoubleToNumber(nValor, decimal) { if (nValor == 0 || nValor == undefined) return '0,00'; if (decimal == undefined) decimal = 2; nValor = nValor.toFixed(decimal); strValue = nValor.toString(); strValue = strValue.replace('.', ','); if (strValue.indexOf(',') != -1) { var aValues = strValue.split(','); if (aValues[1].length > decimal) aValues[1] = aValues[1].substring(0, decimal); if (aValues[1].length < decimal) { var max = (decimal + 1) - aValues[1].length; for (var i = 1; i < max; i++) 					aValues[1] = aValues[1] + '0'; } strValue = aValues[0] + aValues[1]; } else { for (var i = 0; i < decimal; i++) 				strValue = strValue + '0'; } for (var i = 0; i < decimal; i++) { if (strValue.charAt(0) == '0') { strValue = strValue.substring(1, strValue.length); } } if (strValue.length <= decimal) { var max = (decimal + 1) - strValue.length; for (var j = 0; j < max; j++) { strValue = '0' + strValue; } } strInteiro = strValue.substring(0, strValue.length - decimal); strDecimal = strValue.substring(strValue.length - decimal, strValue.length); var newNumber1 = ""; var x = 0; for (var i = strInteiro.length; i > 0; i--) { x++; var c = strInteiro.substring(i - 1, i); newNumber1 = c + newNumber1; if (x == 3 && i != 1) { newNumber1 = "." + newNumber1; x = 0; } } newNumber1 = newNumber1.replace('-.', '-'); return newNumber1 + ',' + strDecimal; } function formatNumberToField(strValue, decimal) { console.log(strValue); strValue = strValue.replace(',', ''); strValue = strValue.replace('.', ''); for (var i = 0; i < decimal; i++) { if (strValue.charAt(0) == '0') { strValue = strValue.substring(1, strValue.length); } } if (strValue.length == 0) strValue = '000'; if (strValue.length == 1) strValue = '00' + strValue; if (strValue.length == 2) strValue = '0' + strValue; strInteiro = strValue.substring(0, strValue.length - decimal); strDecimal = strValue.substring(strValue.length - 2, strValue.length); return strInteiro + ',' + strDecimal; } function buscaConsultaPadraoDialog() { var busca = document.getElementById('buscaDialog').value; console.log('busca ' + busca); var oTable = document.getElementById('tableDialog'); console.log('otable ' + oTable); if (oTable) { var aLines = oTable.getElementsByTagName('tr'); console.log('aLines ' + aLines); for (var key in aLines) { console.log('key ' + key); var title = aLines[key].title; console.log('title ' + title); if (title != undefined && title != '') { if (title.toLowerCase().indexOf(busca.toLowerCase()) >= 0) { aLines[key].style.display = 'table-row'; aLines[key].style.visibility = 'visible'; } else { aLines[key].style.display = 'none'; aLines[key].style.visibility = 'hidden'; } } } } }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="./ApliWeb_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- google icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,1,0" />
+
+</head>
+
+<body>
+    <div id="loading" class="loading"><img style="padding-right:3px;width:15px;"
+            src="./ApliWeb_files/loading.gif">Aguarde...</div>
+    <div class="divCabecalho no-print">
+        <div class="divBordaLogoCabecalho link" onclick="viewSpanMenu('divMenu')"><img class="imgLogoCabecalho"
+                src="./ApliWeb_files/logo_mini.svg"></div>
+        <div class="divBordaBarCabecalho divEsconde">
+            <div class="menu-item">
+                <div class="menu-logo">
+                    <!-- <img src="./ApliWeb_files/user.svg"> -->
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                </div>
+
+                <div class="fontCabecalho">
+                    <span class="user">admin</span>
+                    <select name="empresa" class="inputSelect" onchange="changeEmpresa(this,'')">
+                        <option selected="" value="01">Cerrad Coffee - Patrocínio</option>
+                        <option value="02">Cerrad Coffee - Tokio</option>
+                        <option value="03">Cerrad Coffee - Akio</option>
+                        <option value="04">Coffeelab</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="formMenuItem" action="http://apli.com.br:8287/sistema5/index.jsp" method="post"
+        enctype="multipart/form-data" acceptcharset="UTF-8"><input type="hidden" id="msgtype" name="msgtype"
+            value="Inicio"><input type="hidden" id="params" name="params" value=""><input type="hidden" id="usuario"
+            name="usuario" value="admin"><input type="hidden" id="token" name="token"
+            value="add57ed8ee8e3b95e1519e17cd54be19"><input type="hidden" id="version" name="version"
+            value="2.082.166"><input type="hidden" id="hora" name="hora" value="13:18"><input type="hidden" id="empresa"
+            name="empresa" value="01"></form>
+    <div style="height:4rem;"></div>
+    <span class="divMenu divOculto" id="divMenu">
+        <div class="divMenuBusca divEsconde">
+            <input list="datalistmenu" class="input"
+                onchange="confirmForm('formMenuItem','AbrirMenu','&amp;nome='+this.value)" placeholder="Busca">
+        </div>
+        <div class="divMenuModulo" onclick="viewSpan('spanCfg')">▹&nbsp;Sistema</div><span id="spanCfg"
+            class="spanMenu">
+            <div class="divMenuGrupo">&nbsp;Catálogo de Dados</div>
+            <div class="divMenuItem" id="Atualizar" onclick="confirmForm('formMenuItem','AtualizarBancoDeDados','')">
+                Atualizar BD
+            </div>
+            <div class="divMenuItem" id="Sincronizar" onclick="confirmForm('formMenuItem','SincronizarBD','')">
+                Sincronizar</div>
+            <div class="divMenuItem" id="Consulta SQL" onclick="confirmForm('formMenuItem','ExecutarConsultaSQL','')">
+                Consulta SQL
+            </div>
+            <div class="divMenuItem" id="Importar CSV" onclick="confirmForm('formMenuItem','ImportarCSV','')">Importar
+                CSV</div>
+            <div class="divMenuItem" id="Executar JSON" onclick="confirmForm('formMenuItem','Executar JSON','')">
+                Executar JSON</div>
+            <div class="divMenuItem" id="Exportar JSON" onclick="confirmForm('formMenuItem','ExportarToJSON','')">
+                Exportar JSON</div>
+            <div class="divMenuItem" id="Encriptar" onclick="confirmForm('formMenuItem','EncriptarDados','')">Encriptar
+            </div>
+            <div class="divMenuItem" id="AplicarInnoBD" onclick="confirmForm('formMenuItem','AplicarInnoBD','')">Aplicar
+                InnoBD</div>
+            <div class="divMenuGrupo">&nbsp;Menus</div>
+            <div class="divMenuItem" id="Menu" onclick="confirmForm('formMenuItem','ListarTabela','tablename=MENU')">
+                Menu</div>
+            <div class="divMenuItem" id="MenuItem"
+                onclick="confirmForm('formMenuItem','ListarTabela','tablename=MENUITEM')">
+                MenuItem</div>
+            <div class="divMenuGrupo">&nbsp;Principal</div>
+            <div class="divMenuItem" id="Empresas"
+                onclick="confirmForm('formMenuItem','ListarTabela','tablename=EMPRESA')">
+                Empresas</div>
+            <div class="divMenuItem" id="Usuários"
+                onclick="confirmForm('formMenuItem','ListarTabela','tablename=USUARIO')">
+                Usuários</div>
+            <div class="divMenuItem" id="Módulos"
+                onclick="confirmForm('formMenuItem','ListarTabela','tablename=MODULO')">Módulos
+            </div>
+            <div class="divMenuItem" id="Tabelas" onclick="confirmForm('formMenuItem','VerTabelas','')">Tabelas</div>
+            <div class="divMenuItem" id="Parâmetros"
+                onclick="confirmForm('formMenuItem','ListarTabela','tablename=PARAMETRO')">
+                Parâmetros</div>
+            <div class="divMenuGrupo">&nbsp;Relacionamentos</div>
+            <div class="divMenuItem" id="Usuário x Empresa"
+                onclick="confirmForm('formMenuItem','ListarTabela','tablename=USUARIOXEMPRESA')">
+                Usuário x Empresa</div>
+            <div class="divMenuItem" id="Usuário x Módulo"
+                onclick="confirmForm('formMenuItem','ListarTabela','tablename=USUARIOXMODULO')">
+                Usuário x Módulo</div>
+            <div class="divMenuItem" id="Permissões"
+                onclick="confirmForm('formMenuItem','ListarTabela','tablename=PERMISSAO')">
+                Permissões</div>
+            <div class="divMenuGrupo">&nbsp;Cadastros</div>
+        </span>
+        <div class="divMenuModulo" onclick="viewSpan('span010')">&nbsp;Controle de Grãos</div><span id="span010"
+            class="spanMenu">
+            <div id="divGrupo0100" class="divMenuGrupo">&nbsp;Cadastros</div>
+            <div class="divMenuItem" id="Amostras/Picotes"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=AMOSTRA')">
+                Amostras/Picotes</div>
+            <div class="divMenuItem" id="Laboratório"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=LABORATORIO')">
+                Laboratório</div>
+            <div class="divMenuItem" id="Laboratório x Usuário"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=LABORATORIOXUSUARIO')">
+                Laboratório x Usuário</div>
+            <div class="divMenuItem" id="Parceiros"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=PARCEIRO')">
+                Parceiros</div>
+            <div class="divMenuItem" id="Fazenda"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=FAZENDA')">
+                Fazenda</div>
+            <div class="divMenuItem" id="Origem da Amostra"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=ORIGEMAMOSTRA')">
+                Origem da Amostra</div>
+            <div class="divMenuItem" id="Produto"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=PRODUTO')">
+                Produto</div>
+            <div class="divMenuItem" id="Armazém"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=ARMAZEM')">
+                Armazém</div>
+            <div class="divMenuItem" id="Embalagem"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=EMBALAGEM')">
+                Embalagem</div>
+            <div class="divMenuItem" id="Torrar Como"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=TIPOTORRA')">
+                Torrar Como</div>
+            <div class="divMenuItem" id="Qualidade"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=QUALIDADE')">
+                Qualidade</div>
+            <div class="divMenuItem" id="Variedade"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=VARIEDADE')">
+                Variedade</div>
+            <div class="divMenuItem" id="Processo"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=PROCESSO')">
+                Processo</div>
+            <div class="divMenuItem" id="Lotes"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=MACROAMOSTRA')">
+                Lotes</div>
+            <div class="divMenuItem" id="Peneiras"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=PENEIRA')">
+                Peneiras</div>
+            <div class="divMenuItem" id="Usuários"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=USUARIO')">
+                Usuários</div>
+            <div class="divMenuItem" id="PI - Packing Instruction"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=PI')">PI -
+                Packing Instruction</div>
+            <div id="divGrupo0101" class="divMenuGrupo">&nbsp;Análises</div>
+            <div class="divMenuItem" id="Provas"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=PROVA')">
+                Provas</div>
+            <div class="divMenuItem" id="Mesas de Prova"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=MESAPROVA')">
+                Mesas de Prova</div>
+            <div class="divMenuItem" id="Painel de Análise de Amostras"
+                onclick="confirmForm('formMenuItem','PainelAmostraTorrarComo','')">Painel de
+                Análise de Amostras</div>
+            <div class="divMenuItem" id="Destinações"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=AMOSTRADESTINO')">
+                Destinações</div>
+            <div class="divMenuItem" id="Atualiza Situação das Amostras"
+                onclick="confirmForm('formMenuItem','AtualizaSituacaoAmostras','')">Atualiza
+                Situação das Amostras</div>
+            <div class="divMenuItem" id="Atualiza Qtd. Pen." onclick="confirmForm('formMenuItem','corrige2','')">
+                Atualiza Qtd. Pen.</div>
+            <div id="divGrupo0102" class="divMenuGrupo">&nbsp;Operações</div>
+            <div class="divMenuItem" id="Guias de Serviço (Amostras)"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=GUIAAMOSTRA')">
+                Guias de Serviço (Amostras)</div>
+            <div class="divMenuItem" id="Guia de Saída (Amostra)"
+                onclick="confirmForm('formMenuItem','ListarTabela','&amp;tablename=GUIAAMOSTRASAIDA')">
+                Guia de Saída (Amostra)</div>
+            <div class="divMenuItem" id="Guia de Saída por PI"
+                onclick="confirmForm('formMenuItem','ListarPItoGuiaAmostraSaida','')">Guia de
+                Saída por PI</div>
+            <div class="divMenuItem" id="Guia de Serviço por PI"
+                onclick="confirmForm('formMenuItem','ListarPItoGuiaAmostraServico','')">Guia de
+                Serviço por PI</div>
+        </span>
+
+        <div class="divMenuModulo">▹&nbsp;Login</div>
+        <div class="divMenuItem" onclick="confirmForm('formMenuItem','Inicio','')">Inicio</div>
+        <div class="divMenuItem" onclick="window.open('https://www.apli.com.br/manual/')">Manual</div>
+        <div class="divMenuItem" onclick="confirmForm('formMenuItem','AlterarSenha','')">Alterar Senha</div>
+        <div class="divMenuItem" onclick="confirmForm('formMenuItem','Sair','')">Sair</div>
+    </span>
+
+    <datalist id="datalistmenu">
+        <option value="Amostras/Picotes"></option>
+        <option value="Armazém"></option>
+        <option value="Atualiza Qtd. Pen."></option>
+        <option value="Atualiza Situação das Amostras"></option>
+        <option value="Destinações"></option>
+        <option value="Embalagem"></option>
+        <option value="Fazenda"></option>
+        <option value="Guia de Saída (Amostra)"></option>
+        <option value="Guia de Saída por PI"></option>
+        <option value="Guia de Serviço por PI"></option>
+        <option value="Guias de Serviço (Amostras)"></option>
+        <option value="Laboratório"></option>
+        <option value="Laboratório x Usuário"></option>
+        <option value="Lotes"></option>
+        <option value="Mesas de Prova"></option>
+        <option value="Origem da Amostra"></option>
+        <option value="PI - Packing Instruction"></option>
+        <option value="Painel de Análise de Amostras"></option>
+        <option value="Parceiros"></option>
+        <option value="Peneiras"></option>
+        <option value="Processo"></option>
+        <option value="Produto"></option>
+        <option value="Provas"></option>
+        <option value="Qualidade"></option>
+        <option value="Torrar Como"></option>
+        <option value="Usuários"></option>
+        <option value="Variedade"></option>
+    </datalist>
+    <div class="divCorpo">
+        <div class="divPainelFormulario">
+            <div class="divBorda">
+                <div class="divTitulo">Notificações</div>
+                <div class="divPainelDados">
+                    <div class="divSucesso">Nenhuma notificação para você no momento!</div>
+                </div>
+                <div class="divDialog" id="divDialog2">
+                    <div class="divBarDialog">
+                        <div class="divMiniBotao" onclick="fechaDialog2();">FECHAR&nbsp;<img
+                                src="./ApliWeb_files/icone_fecha.png"></div>
+                    </div>
+                    <div class="divDialogBody" id="divDialogBody2"><img style="width:15px;"
+                            src="./ApliWeb_files/loading.gif"></div>
+                </div>
+                <div class="divDialog" id="divDialog">
+                    <div class="divBarDialog">
+                        <div class="divMiniBotao" onclick="fechaDialog();">FECHAR&nbsp;<img
+                                src="./ApliWeb_files/icone_fecha.png"></div>
+                    </div>
+                    <div class="divDialogBody" id="divDialogBody"><img style="width:15px;"
+                            src="./ApliWeb_files/loading.gif"></div>
+                </div>
+                <div class="divDialog3" id="divDialog3">
+                    <div class="divBarDialog">
+                        <div class="divMiniBotao" onclick="fechaDialog3();">FECHAR&nbsp;<img
+                                src="./ApliWeb_files/icone_fecha.png"></div>
+                    </div>
+                    <div class="divDialogBody" id="divDialogBody3"><img style="width:15px;"
+                            src="./ApliWeb_files/loading.gif"></div>
+                </div>
+                <div id="divAlt" class="divAlt"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="icons.js"></script>
+
+</html>

@@ -1,0 +1,1362 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+
+/* Chart.js */
+@-webkit-keyframes chartjs-render-animation {
+    from {
+        opacity: 0.99
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes chartjs-render-animation {
+    from {
+        opacity: 0.99
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+:root {
+    --bg-primary: #042940;
+    --bg-secondy:  #20506e;
+    --font-poppins: 'Poppins';
+    --font-noto: 'Noto Sans JP', 'Tahoma';
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.chartjs-render-monitor {
+    -webkit-animation: chartjs-render-animation 0.001s;
+    animation: chartjs-render-animation 0.001s;
+}
+
+BODY {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    background: white
+}
+
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+@media all {
+    .page-break {
+        display: none;
+    }
+}
+
+@media print {
+    .page-break {
+        display: block;
+        page-break-before: always;
+    }
+
+    .no-print {
+        display: none
+    }
+}
+
+/* FIREFOX */
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: white var(--bg-primary);
+}
+
+/* Worjs on Chrome, Safari and Edge */
+::-webkit-scrollbar {
+    width: 10px;
+    /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondy);
+    /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid var(--bg-primary);
+    /* creates padding around scroll thumb */
+}
+
+.loading {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    position: absolute;
+    top: 48%;
+    left: 43%;
+    display: none;
+    visibility: hidden;
+    background-color: white;
+    padding: 30px;
+    color: black;
+    font-family: var(--font-noto);
+    border-radius: 5px;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.divGeral {
+    margin: 0px;
+    border: 0px;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+}
+
+.divRodape {
+    padding: 10px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 110px;
+    box-shadow: 0px -2px #c0c0c0, 0px -4px #d0d0d0, 0px -6px #f0f0f0;
+    background: linear-gradient(#f7f7f7, white);
+}
+
+.divSpaceRodape {
+    height: 130px;
+}
+
+.divCorpo {
+    width: 100%;
+    position: static;
+    background: var(--bg-primary);
+}
+
+.inputMenuBusca {
+    width: 230px;
+}
+
+@keyframes mostramenubar {
+    from {
+        width: 0px;
+        opacity: 0.1;
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+
+@keyframes mostraDados {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.divPainelDados {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    font-family: var(--font-noto);
+    size: 14px;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    background: linear-gradient(#f7f7f7, white);
+    border-radius: 4px;
+    text-align: center;
+    animation-name: mostraDados;
+    animation-duration: 2s;
+}
+
+.divPainelDados2 {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    font-family: var(--font-noto);
+    size: 14px;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    background: linear-gradient(#f7f7f7, white);
+    border-radius: 4px;
+    text-align: center;
+    animation-name: mostraDados;
+    animation-duration: 2s;
+    height: 250px;
+    overflow: auto
+}
+
+.spanMenu {
+    display: none;
+    animation-name: mostraDados;
+    animation-duration: 1s;
+}
+
+.spanOculto {
+    display: none;
+    visibility: hidden
+}
+
+.divPainelFormulario {
+    z-index: 1;
+    float: left;
+    width: 95%;
+}
+
+.divPainelGrafico {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+    min-height: 200px;
+    width: 95%;
+    font-family: var(--font-noto);
+    size: 14px;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    background: white;
+    border-radius: 4px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.divPainelGraficoEspecial {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+    display: inline-flex;
+    overflow: auto;
+    height: 400px;
+    width: 95%;
+    font-family: var(--font-noto);
+    size: 14px;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    background: white;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.divPainelBusca {
+    width: 100%;
+    font-family: var(--font-noto);
+    font-size: 12px;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    background: linear-gradient(#f7f7f7, #f0f0f0);
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.divPainelAcoes {
+    width: 100%;
+    font-family: var(--font-noto);
+    size: 14px;
+    color: black;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    margin: 5px;
+    background: linear-gradient(white, #f0f0f0);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.divBordaLogoCabecalho {
+    width: 64px;
+    height: 100%;
+}
+
+.imgGrafico {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    background: white;
+    width: 300px;
+    height: 220px;
+}
+
+.divBlocoRelativo {
+    float: left;
+}
+
+.divSubBlocoRelativo {
+    float: left;
+}
+
+.divGraficoNovo {
+    width: 400px;
+    height: 250px;
+}
+
+.divBordaBarCabecalho {
+    width: 70%;
+    text-align: right;
+}
+
+.divBarCabecalho {
+    float: right;
+    width: 30px;
+    height: 30px;
+    background: white;
+}
+
+.divBorda {
+    padding: 7px;
+}
+
+.divBordaPrint {
+    padding: 7px;
+    width: 800px;
+}
+
+.divBordaFormCabec {
+    margin: 7px;
+    padding: 7px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: linear-gradient(#f7f7f7, white);
+}
+
+.divBordaVisivel {
+    margin: 7px;
+    padding: 7px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: linear-gradient(#f0f0f0, white, white);
+}
+
+.divBordaVisivel:hover {
+    background: linear-gradient(#e0e0e0, white, white);
+}
+
+.divMenuModulo {
+    align-items: center;
+    /* border-bottom: 1px dotted #555555; */
+    color: #cccccc;
+    cursor: pointer;
+    display: flex;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 2px;
+}
+
+.divMenuModulo:hover {
+    color: black;
+    padding-left: 10px;
+    background: var(--bg-primary);
+}
+
+
+.divMenuGrupo {
+    font-family: var(--font-poppins);
+    height: 20px;
+    font-size: 15px;
+    color: white;
+    padding: 2px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-bottom: 1px dotted white;
+}
+
+.divMenuItem {
+    font-family: var(--font-poppins);
+    height: 20px;
+    font-size: 15px;
+    color: #dddddd;
+    padding: 5px;
+    border-bottom: 1px solid white;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.divMenuItem:hover {
+    color: black;
+    padding-left: 10px;
+    background: #04294090;
+}
+
+
+.nav-footer{
+    height: 75px;
+    width: 100%;
+    background: var(--bg-primary)
+}
+
+.fontCabecalho {
+    font-family: 'Calibri';
+    color: #eeeeee;
+}
+
+.fontRed {
+    color: red;
+}
+
+.fontBlue {
+    color: blue;
+}
+
+.fontPadrao {
+    font-family: var(--font-noto);
+    size: 12px;
+}
+
+.divTitulo {
+    width: 100%;
+    font-family: var(--font-noto);
+    font-size: 17px;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    background: var(--bg-primary);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.divSubTitulo {
+    font-family: var(--font-noto);
+    size: 12px;
+    color: black;
+    padding: 5px
+}
+
+.divSubTitulo2 {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    font-family: var(--font-noto);
+    size: 12px;
+    color: black;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.divTituloGrupo {
+    border-bottom: 1px dotted gray;
+    margin-bottom: 5px;
+    font-family: var(--font-noto);
+    font-size: 11px;
+    color: black;
+    padding: 5px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.divBordaCampo {}
+
+.divRotulo {
+    font-family: var(--font-noto);
+    font-size: 14px;
+    float: left;
+}
+
+.divCampo {
+    float: right;
+}
+
+.divInfo {
+    border-radius: 4px;
+    border: 1px solid #C19B00;
+    background: #FFFF99;
+    font-family: 'Arial';
+    size: 10px;
+    padding: 5px;
+}
+
+.fontObs {
+    border-radius: 4px;
+    border: 1px solid #C19B00;
+    background: #FFFF99;
+    font-family: 'Arial';
+    font-size: 10px;
+    ;
+    padding: 2px;
+    margin: 4px;
+    cursor: default;
+}
+
+.divErro {
+    border-radius: 4px;
+    border: 1px solid #990000;
+    background: #FFCACA;
+    font-family: 'Arial';
+    size: 10px;
+    padding: 5px;
+}
+
+.divSucesso {
+    border-radius: 4px;
+    border: 1px solid #003366;
+    background: #CEE0FD;
+    font-family: 'Arial';
+    size: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+.divBotao {
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #003366;
+    background: #e0e0e0;
+    font-family: 'Arial';
+    size: 10px;
+    padding: 5px;
+}
+
+.divRelacaoEditavel {
+    width: 100%;
+    height: 220px;
+    overflow: auto;
+}
+
+.divLegenda {
+    padding: 2px;
+}
+
+.tdRotulo {
+    text-align: right;
+    padding: 5px;
+}
+
+.imgIconeButton {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: 444444;
+}
+
+.imgIconeClose {
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.divFontIcone {
+    color: 444444;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'font-icon-solid';
+}
+
+.divButton {
+    border: 1px solid #c0c0c0;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    background: linear-gradient(#e0e0e0, #f7f7f7, white);
+    border-radius: 2px;
+    margin-left: 2px;
+    white-space: normal;
+    vertical-align: middle;
+    display: inline-flex;
+    height: 20px;
+    text-align: center;
+}
+
+.divButton:hover {
+    background: #09BBFF;
+}
+
+.inputButton {
+    height: 32px;
+    margin-left: 2px;
+    background: linear-gradient(#e0e0e0, #f7f7f7, white);
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    ;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: var(--font-noto);
+    font-size: 14px;
+    color: black;
+}
+
+.inputButton:hover {
+    background: #09BBFF;
+}
+
+.inputButtonIcon {
+    height: 32px;
+    margin-left: 2px;
+    background: linear-gradient(#e0e0e0, #f7f7f7, white);
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    ;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: var(--font-noto);
+    font-size: 14px;
+    color: black;
+}
+
+.inputButtonIcon:hover {
+    background: #09BBFF;
+}
+
+.inputButtonNegative {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    height: 32px;
+    margin-left: 2px;
+    background: linear-gradient(#e0e0e0, #e0e0e0, white);
+    border: 1px solid #DBB0B8;
+    border-radius: 2px;
+    ;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: var(--font-noto);
+    font-size: 14px;
+    color: black
+}
+
+.inputButtonLink {
+    height: 32px;
+    margin-left: 2px;
+    background: transparent;
+    border: 0px;
+    ;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: var(--font-noto);
+    font-size: 12px;
+    color: blue;
+}
+
+.inputSelect {
+    background: linear-gradient(white, white, #f0f0f0);
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+    ;
+    padding: 2px;
+    font-family: var(--font-noto);
+    font-size: 14px;
+    height: 32px;
+    color: black
+}
+
+.inputSelect:hover {
+    border: 1px solid #909090;
+}
+
+.inputPadrao {
+    background: linear-gradient(white, white, #f0f0f0);
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+    ;
+    padding: 2px;
+    font-family: var(--font-noto);
+    font-size: 14px;
+    height: 32px;
+    color: black
+}
+
+.inputPadrao:hover {
+    border: 1px solid #909090;
+}
+
+.inputHidden {
+    display: none;
+    visibility: hidden
+}
+
+.inputNumber {
+    text-align: right;
+    background: linear-gradient(white, white, #f0f0f0);
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+    ;
+    padding: 2px;
+    font-family: var(--font-noto);
+    font-size: 14px;
+    color: black
+}
+
+.inputNumberDisabled {
+    text-align: right;
+    background: #d0d0d0;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+    ;
+    padding: 2px;
+    font-family: var(--font-noto);
+    font-size: 14px;
+    color: black
+}
+
+.inputDisabled {
+    background: #d0d0d0;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+    ;
+    padding: 2px;
+    font-family: var(--font-noto);
+    font-size: 14px;
+    color: black
+}
+
+.selectPadrao {
+    font-family: var(--font-noto);
+    font-size: 14px;
+    color: black
+}
+
+.inputText {}
+
+.inputTextRequired {
+    border: 1px solid #e0e0e0;
+}
+
+.tableFormulario {
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.tableRelacao {
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    width: 100%;
+    border-radius: 4px;
+    page-break-inside: auto;
+}
+
+.tableRelacao2 {
+    border-collapse: collapse;
+    border: 0px;
+    width: 100%;
+    page-break-inside: auto;
+}
+
+.tableRelacaoFixed {
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    page-break-inside: auto;
+}
+
+.thRelacao {
+    font-family: var(--font-noto);
+    font-size: 12px;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    background: linear-gradient(white, #e0e0e0);
+}
+
+.tdRotuloTotal {
+    font-family: var(--font-noto);
+    font-size: 12px;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    background: linear-gradient(white, #e0e0e0);
+    text-align: right;
+    width: 150px;
+}
+
+.trRelacao:nth-child(odd) {
+    background: white
+}
+
+.trRelacao:nth-child(even) {
+    background: #f7f7f7
+}
+
+.trRelacao:hover {
+    background: #e0e0e0;
+}
+
+.tdCenter {
+    text-align: center
+}
+
+.tdRelacao {
+    font-family: var(--font-noto);
+    font-size: 12px;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    page-break-inside: auto;
+    color: black
+}
+
+.tdRelacao2 {
+    font-family: var(--font-noto);
+    font-size: 12px;
+    border-collapse: collapse;
+    border: 0px;
+    page-break-inside: auto;
+}
+
+.tdRelacao4 {
+    font-family: var(--font-noto);
+    font-size: 8px;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    page-break-inside: auto;
+}
+
+.tdRelacaoFixed1 {
+    width: 100px;
+    font-family: var(--font-noto);
+    font-size: 12px;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    background: linear-gradient(white, white, #f0f0f0);
+    page-break-inside: auto;
+}
+
+.tdRelacaoNumber {
+    font-family: var(--font-noto);
+    font-size: 12px;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    text-align: right;
+}
+
+.tdRelacaoButton {
+    width: 50px;
+    font-family: var(--font-noto);
+    font-size: 12px;
+    border-collapse: collapse;
+    border: 1px solid #e0e0e0;
+    ;
+    padding: 2px;
+    background: white;
+}
+
+.fontGrafico {
+    font-family: var(--font-noto);
+    font-size: 12px;
+    ;
+    padding: 2px;
+}
+
+.divRotulo {
+    width: 200px;
+    text-align: right;
+}
+
+.fontLink {
+    cursor: pointer;
+}
+
+.divPainelLogin {
+    padding: 20px;
+    border: 1px solid white;
+    width: 330px;
+    border-radius: 5px;
+    background: var(--bg-primary);
+}
+
+.tdRotuloLogin {
+    text-align: right;
+}
+
+.tableLogin {
+    width: 95%;
+}
+
+.divInputTags {
+    display: block;
+    min-width: 70px;
+    border: 1px solid #a0a0a0;
+    border-radius: 2px;
+    margin: 3px;
+    ;
+    padding: 2px;
+    overflow: auto;
+}
+
+.divTag {
+    font-family: var(--font-noto);
+    font-size: 12px;
+    background: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin: 3px;
+    ;
+    padding: 2px;
+    float: left;
+}
+
+.fontTag {
+    font-family: var(--font-noto);
+    font-size: 12px;
+    background: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin: 3px;
+    ;
+    padding: 2px;
+}
+
+.divEsconde {
+    display: block;
+    visibility: visible;
+}
+
+.divOculto {
+    display: none;
+    visibility: hidden;
+}
+
+.divDialog {
+    display: none;
+    visibility: hidden;
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 90%;
+    height: 350px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 7px 7px 5px #888888;
+    padding: 5px;
+}
+
+.divDialog3 {
+    display: none;
+    visibility: hidden;
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    width: 320px;
+    height: 350px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 7px 7px 5px #888888;
+    padding: 5px;
+}
+
+.divBarDialog {
+    width: 100%;
+    height: 15px;
+    font-family: var(--font-noto);
+    font-size: 10px;
+    color: var(--bg-primary);
+    margin-bottom: 3px;
+}
+
+.divMiniBotao {
+    cursor: pointer;
+    ;
+    padding: 2px;
+    margin-left: 5px;
+    float: right;
+}
+
+.divDialogBody {
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+}
+
+.divObs {
+    font-family: Tahoma;
+    font-size: 10px;
+}
+
+.divAlt {
+    block: none;
+    visibility: hidden;
+    width: 200px;
+    background: white;
+    color: black;
+    border: 1px solid gray;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    font-family: Tahoma;
+    font-size: 10px;
+}
+
+.tableCalendar {
+    width: 100%;
+    border: 1px dotted var(--bg-primary);
+}
+
+.tdCalendarTitulo {
+    font-family: var(--font-noto);
+    font-size: 13px;
+    background: var(--bg-primary);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tdCalendar {
+    font-family: var(--font-noto);
+    font-size: 16px;
+    text-align: center;
+    height: 30px;
+    cursor: pointer;
+    border: 1px dotted var(--bg-primary);
+}
+
+.tdCalendar:hover {
+    border: 1px solid black;
+}
+
+.tdCalendarHoje {
+    font-family: var(--font-noto);
+    font-size: 16px;
+    text-align: center;
+    height: 30px;
+    cursor: pointer;
+    border: 5px solid blue;
+}
+
+.inputNumber {
+    text-align: right;
+}
+
+.tableTitulo {
+    width: 100%;
+}
+
+#map {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin: 5px;
+    height: 75%;
+}
+
+.inputLupa {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.fontPequena {
+    font-family: var(--font-noto);
+    font-size: 9px;
+}
+
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 1000px) {
+    .divOculto {}
+}
+
+@media screen and (min-width: 500px) {
+    .divMenu {
+        width: 300px;
+        max-width: 300px;
+        position: fixed;
+        left: 0px;
+        top: 64px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .divPainelDados {
+        width: 100%;
+        overflow: hidden;
+        font-family: var(--font-noto);
+        size: 14px;
+        color: black;
+        border: 1px solid #e0e0e0;
+        padding: 5px;
+        margin: 5px;
+        background: linear-gradient(#f7f7f7, white, white);
+        border-radius: 4px;
+        text-align: center;
+        animation-name: mostraDados;
+        animation-duration: 1s;
+    }
+
+    .divMenu {
+        left: 0px;
+        max-width: 100%;
+        position: fixed;
+        top: 64px;
+        width: 100vw;
+    }
+
+    .divPainelFormulario {
+        overflow: none;
+    }
+
+    .divEsconde {
+        display: none;
+        visibility: hidden;
+    }
+
+    .divRotulo {
+        width: 60px;
+        font-family: var(--font-noto);
+        font-size: 12px;
+        float: left;
+    }
+
+    .divBordaFormCabec {
+        margin: 7px;
+        padding: 7px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        background: linear-gradient(#f7f7f7, white, white, white);
+        height: auto;
+        overflow: hidden;
+    }
+
+    .divBordaVisivel {
+        margin: 7px;
+        padding: 7px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        background: linear-gradient(#f7f7f7, white, white);
+        height: auto;
+        overflow: hidden;
+    }
+
+    .fontCabecalho {
+        font-size: 9px;
+    }
+
+    .inputPadrao {
+        max-width: 70px;
+        background: linear-gradient(white, white, #f0f0f0);
+        border: 1px solid #c0c0c0;
+        border-radius: 2px;
+        padding: 5px;
+        font-family: var(--font-noto);
+        font-size: 14px;
+    }
+}
+
+#printOnly {
+    display: none;
+}
+
+@media print {
+
+    .doprint,
+    .doprint * {
+        display: inline-block !important;
+    }
+}
+
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+    background: rgba(0, 0, 0, .9);
+    transition: opacity .25s ease;
+}
+
+.modal__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.modal-state {
+    display: none;
+}
+
+.modal-state:checked+.modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-state:checked+.modal .modal__inner {
+    top: 0;
+}
+
+.modal__inner {
+    transition: top .25s ease;
+    position: absolute;
+    top: -20%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 70%;
+    margin: auto;
+    overflow: auto;
+    background: #fff;
+    border-radius: 5px;
+    padding: 1em 2em;
+    height: 50%;
+}
+
+.modal__close {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    width: 1.1em;
+    height: 1.1em;
+    cursor: pointer;
+}
+
+.modal__close:after,
+.modal__close:before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 1.5em;
+    background: #ccc;
+    display: block;
+    transform: rotate(45deg);
+    left: 50%;
+    margin: -3px 0 0 -1px;
+    top: 0;
+}
+
+.modal__close:hover:after,
+.modal__close:hover:before {
+    background: #aaa;
+}
+
+.modal__close:before {
+    transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+    .modal__inner {
+        width: 90%;
+        height: 90%;
+        box-sizing: border-box;
+    }
+}
+
+.input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.divCabecalho {
+    display: flex;
+    background: var(--bg-primary);
+    height: 4rem;
+    justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+.imgLogoCabecalho {
+    padding: 0px;
+    size: 5px;
+    max-width: 4rem;
+}
+
+.imgLogoCabecalho:hover {
+    background-color: #303941;
+}
+
+.menu-item {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.menu-item .menu-logo {
+    margin-right: 10px;
+    width: 25px;
+}
+
+.menu-item .menu-logo img {
+    width: 100%;
+}
+
+/* google icon */
+.material-symbols-outlined {
+    color: white;
+    font-size: 30px;
+}
+
+.fontCabecalho>.user::after {
+    border-right: 1px solid white;
+    content: '';
+    padding-right: 5px;
+}
+
+span#divMenu > * {
+    font-family: 'Poppins', var(--font-noto);
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+}
+
+.divMenu {
+    animation: mostramenubar 1s;
+    background: var(--bg-secondy);
+    border-bottom-right-radius: 5px;
+    height: 100%;
+    min-height: 400px;
+    overflow: scroll;
+    transition: all 1s ease;
+    padding: 10px;
+    z-index: 0;
+}
+
+.divMenuModulo, 
+.divMenuGrupo,
+.divMenuItem {
+    height: 40px;
+    border-radius: 0;
+}
+
+.divMenuModulo{
+    height: 40px;
+    border-radius: 10px;
+}
+
+.inputTransparent {
+    background: transparent;
+}
+
+.new_container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+    max-width: 100%;
+    min-height: 480px;
+}
