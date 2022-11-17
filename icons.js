@@ -12,11 +12,11 @@ const icons = {
 var divMenuModulo = document.querySelectorAll('.divMenuModulo');
 
 function negrito() {
-    let elementBold = this.style.fontWeight
-    if(elementBold === ''){
-        elementBold = 'bold';
-    } else{
-        elementBold = 'normal'
+    let elementBold = this.style
+    if (elementBold.fontWeight === '') {
+        elementBold.fontWeight = 'bold';
+    } else {
+        elementBold.fontWeight = ''
     }
 }
 
